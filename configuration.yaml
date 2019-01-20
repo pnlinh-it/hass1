@@ -53,7 +53,7 @@ sun:
 
 # Weather prediction
 ifttt:
-  key: !secret ifttt_key
+  key: o1_if8w55pZjskidhTaGM
 
 zone:
   - name: Home
