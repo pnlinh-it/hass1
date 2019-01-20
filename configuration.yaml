@@ -22,28 +22,6 @@ homekit:
 frontend:
   javascript_version: latest
 
-mqtt:
-  broker: 192.168.9.103
-  port: 1883
-  username: homeassistant
-  # password 
-  password: !secret mqtt_password    
-  # password
-  protocol: 3.1.1
-  
-# Enables configuration UI
-config:
-shell_command:
-  shutdown_z800: 'curl -k http://192.168.9.112:8000/?action=System.Shutdown'
-#  restart_z800: 'curl -u User:user -k http://192.168.9.112:5050/?action=System.Restart'
-#  sleep_z800: 'curl -u User:user -k http://192.168.9.112:5050/?action=System.Sleep'
-  
-http:
-  base_url: minhthanhhome.duckdns.org
-  ssl_certificate: /home/homeassistant/dehydrated/certs/minhthanhhome.duckdns.org/fullchain.pem
-  ssl_key: /home/homeassistant/dehydrated/certs/minhthanhhome.duckdns.org/privkey.pem
-
-  api_password: !secret api_password
 
 
 # Checks for available updates
@@ -714,77 +692,7 @@ switch:
       slot_4: 'Camera'
 
              
-  - platform: wake_on_lan
-    mac_address: '30:9C:23:0F:15:6E'
-    name: PC
-    host: 192.168.9.112
-    turn_off:
-      service: shell_command.shutdown_z800
-        
-
-    
-
-
-
-  - platform: mqtt
-    name: Main Light 1
-    command_topic: "relay/mainlight"
-    state_topic: "relay/mainlightstate"
-    payload_on: "0"
-    payload_off: "1"
-    optimistic: false
-    qos: 0
-    retain: true
-  - platform: mqtt
-    name: Main Light 2
-    command_topic: "relay/mainlight1"
-    state_topic: "relay/mainlightstate1"
-    payload_on: "0"
-    payload_off: "1"
-    optimistic: false
-    qos: 0
-    retain: true
-  - platform: mqtt
-    name: Tree Pump 
-    command_topic: "relay/bom2"
-    state_topic: "relay/statebom2"
-    
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
-  - platform: mqtt
-    name: Balcony Light
-    command_topic: "relay/balconylight1"
-    state_topic: "relay/balconylightstate1"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
-  - platform: mqtt
-    name: Bathroom Light
-    command_topic: "relay/bathroomlight"
-    state_topic: "relay/bathroomlightstate"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
-  - platform: mqtt
-    name: Dress Room Light
-    command_topic: "relay/dressroomlight1"
-    state_topic: "relay/dressroomlightstate1"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
-
-
-    
-    
+   
     
     
     
